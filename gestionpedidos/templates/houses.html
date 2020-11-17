@@ -10,11 +10,14 @@
             <input type="text" class="form-control" id="search_field" name="search_field" aria-describedby="search_field" placeholder="Buscar">
           </div>
           <button style="height: 37px; margin-left: 2%" type="submit" class="btn btn-primary"> Buscar</button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Agregar propiedad
+            </button>
+
         </form>
 
-        <button style="margin: 4% 0" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Agregar propiedad
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -37,6 +40,7 @@
   </div>
 </div>
 <!-- Modal -->
+
         <div class="row">
             {% for house in casas %}
             <div class="col-md-3">
