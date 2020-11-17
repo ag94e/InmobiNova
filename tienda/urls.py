@@ -12,7 +12,7 @@ urlpatterns = [
     path('new/', app_views.newvista),
     path('home/', app_views.renderview),
     path('register/', app_views.register),
-    path('housess/', app_views.houses_list),
+    path('housess/', app_views.houses_list, name='houses'),
     path('contact/', app_views.contact),
     path('login/', app_views.login),
     path('test/', app_views.test),
