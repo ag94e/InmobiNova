@@ -41,7 +41,17 @@ def houses_list(request):
     else:
         busqueda = houses.objects.all().order_by('created').reverse()
 
+    if request.method == 'POST':
+        ciudad = request.GET.get('ciudad')
+        descripcion = request.GET.get('descripcion')
+        precio = request.GET.get('precio')
+        imagen = request.GET.get('imagen')
+
+        new_house = houses.objects.create(ciudad=ciudad, descripcion=descripcion, precio=precio, imagen=imagen)
+        new_house.save()
+
     return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field})
+
 
 
 def contact(request):
@@ -66,3 +76,4 @@ def contact(request):
 def login(request):
 
     return render(request, "login.html")
+
