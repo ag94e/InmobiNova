@@ -1,68 +1,10 @@
 from django.http import HttpResponse
-import datetime
-from django.template import Template, Context, loader
 from django.shortcuts import render, redirect
-from gestionpedidos.models import usuarios, houses
+from gestionpedidos.models import houses
 from django.core.mail import send_mail
 from django.conf import settings
 from gestionpedidos.forms import formContacto, crearUsuario
 from django.contrib.auth import login as do_login, authenticate
-
-class persona(object):
-
-    def __init__(self, name, first_name):
-        self.name = name
-        self.first_name = first_name
-
-
-p1 = persona("nuevo", "usuario")
-
-
-def fecha_hora(request):
-    fecha = datetime.datetime.now()
-
-    return HttpResponse(fecha)
-
-
-def calcular_edad(request, year, edad):
-    present_year = 2020
-    edad_futura = edad + (year - present_year)
-
-    resultado = f'tu edad para el año {year} sera {edad_futura}'
-
-    return HttpResponse(resultado)
-
-
-# def template_one(request):                         VISTA CREADA SIN CLASE LOADER
-#
-#     mi_lista = ["ziro", "one", "two"]
-#
-#     fecha = datetime.datetime.now()
-#     name = "Pepito"
-#     doc = open('C:/Users/X/Desktop/django/news2/news2/templates2/base.html')
-#
-#     doc_read = Template(doc.read())
-#     doc.close()
-#     ctx = Context({"first_name": p1.name, "ahoraes": fecha, "temas": mi_lista})
-#
-#     documento = doc_read.render(ctx)
-#
-#     return HttpResponse(documento)
-
-
-#                                                      VISTA CREADA CON CLASE LOADER
-
-
-def newvista(request):
-
-    mi_lista = ["ziro", "one", "two"]
-
-    fecha = datetime.datetime.now()
-
-    doc = loader.get_template('base.html')
-    resultado = doc.render({"first_name": p1.name, "ahoraes": fecha, "temas": mi_lista})
-
-    return HttpResponse(resultado)
 
 
 def renderview(request):
@@ -121,25 +63,6 @@ def contact(request):
     return render(request, 'contact.html', {'formi': miform})
 
 
-
-
-
-    #     asunto = request.POST['asunto']
-    #     message = request.POST['mansaje'] + ' /n/n de ' + request.POST['mail']
-    #     mfrom = settings.EMAIL_HOST_USER
-    #     recipient = ['brayanpotosidev@gmail.com']
-    #
-    #     send_mail(asunto, message, mfrom, recipient)
-    #
-    #     return HttpResponse("Enviado con exito")
-    #
-    # return render(request, "contact.html")
-
-
 def login(request):
 
     return render(request, "login.html")
-
-def test(request):
-
-    return render(request, 'test.html')
