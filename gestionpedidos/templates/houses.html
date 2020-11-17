@@ -30,10 +30,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="https://www.google.com/">
-            <p1>Prueba1</p1>
-            <p1>Prueba2</p1>
-            <input class="btn btn-primary" type="submit" value="Agregar Propiedad">
+        <form action="https://www.google.com/" method="post">
+            {% csrf_token %}
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Ciudad</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ciudad">
+
+            <label for="exampleInputEmail1">Descripcion</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Descripcion">
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar propiedad</button>
         </form>
       </div>
       <div class="modal-footer">
