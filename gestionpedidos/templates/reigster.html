@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section style="display: flex; justify-content: center">
+  <form style="max-width: 45%;padding: 2% 0; display: grid; justify-content: center" action="" method="POST">
+      <h1 style="text-align: center">Registro</h1>
+  {% csrf_token %}
+
+      {{ form }}
+  <button type="submit" class="btn btn-primary">Registrarme</button>
+</form>
+</section>
+{% endblock %}
