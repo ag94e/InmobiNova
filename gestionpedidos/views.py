@@ -47,7 +47,7 @@ def houses_list(request):
         precio = request.GET.get('precio')
         imagen = request.GET.get('imagen')
 
-        new_house = houses.objects.create(city=ciudad, description=descripcion, price=precio, image=imagen)
+        new_house = houses(city=ciudad, description=descripcion, price=precio, image=imagen)
         new_house.save()
 
     return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field})
