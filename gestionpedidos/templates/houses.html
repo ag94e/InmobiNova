@@ -34,18 +34,9 @@
             {% csrf_token %}
 
           <div class="form-group">
-            <label for="exampleInputEmail1">Ciudad</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ciudad" name="ciudad">
-
-            <label for="exampleInputEmail1">Descripcion</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Descripcion" name="descripcion">
-
-            <label for="exampleInputEmail1">Precio</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Precio" name="precio">
-
-            <label for="exampleInputEmail1">URL de la imagen</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Imagen" name="imagen">
-
+              <table>
+              {{ formulario.as_table }}
+              </table>
           </div>
           <button type="submit" class="btn btn-primary">Agregar propiedad</button>
         </form>

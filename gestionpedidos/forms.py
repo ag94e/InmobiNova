@@ -10,6 +10,14 @@ class formContacto(forms.Form):
     mensaje = forms.CharField()
 
 
+class AgregarPropiedad(forms.Form):
+
+    ciudad = forms.CharField()
+    descripcion = forms.CharField()
+    precio = forms.FloatField()
+    imagen = forms.CharField()
+
+
 class crearUsuario(UserCreationForm):
 
     class Meta:
