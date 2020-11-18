@@ -50,7 +50,7 @@ def houses_list(request):
             new_house = houses.objects.create(city=ff['ciudad'], description=ff['descripcion'], price=ff['precio'], image=ff['imagen'])
             new_house.save()
 
-        return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field, 'formulario':formulario_test})
+    return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field})
 
 
 
