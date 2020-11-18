@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from gestionpedidos.models import houses
 from django.core.mail import send_mail
 from django.conf import settings
-from gestionpedidos.forms import formContacto, crearUsuario
+from gestionpedidos.forms import formContacto, crearUsuario, AgregarPropiedad
 from django.contrib.auth import login as do_login, authenticate
 
 
@@ -41,7 +41,19 @@ def houses_list(request):
     else:
         busqueda = houses.objects.all().order_by('created').reverse()
 
-    return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field})
+    formulario_test = AgregarPropiedad(request.POST)
+
+    if request.method == 'POST':
+
+        formulario_test = AgregarPropiedad(request.POST)
+
+        if formulario_test.is_valid():
+            ff = formulario_test.cleaned_data
+
+            new_house = houses.objects.create(city=ff['ciudad'], description=ff['descripcion'], price=ff['precio'], image=ff['imagen'])
+            new_house.save()
+
+    return render(request, "houses.html", {'casas': busqueda, 'peticion': search_field, 'formulario': formulario_test})
 
 
 def contact(request):
@@ -66,3 +78,4 @@ def contact(request):
 def login(request):
 
     return render(request, "login.html")
+

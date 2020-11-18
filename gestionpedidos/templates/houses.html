@@ -10,7 +10,44 @@
             <input type="text" class="form-control" id="search_field" name="search_field" aria-describedby="search_field" placeholder="Buscar">
           </div>
           <button style="height: 37px; margin-left: 2%" type="submit" class="btn btn-primary"> Buscar</button>
+
+            <button style="height: 37px; margin-left: 2%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Agregar Propiedad
+            </button>
+
         </form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Propiedad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+            {% csrf_token %}
+
+          <div class="form-group">
+              <table>
+              {{ formulario.as_table }}
+              </table>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar propiedad</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 
         <div class="row">
             {% for house in casas %}
