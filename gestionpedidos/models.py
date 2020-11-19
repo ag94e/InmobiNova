@@ -23,6 +23,7 @@ class houses(models.Model):
     city = models.CharField(max_length=50, blank=True, default="Sin especificar")
     description = models.CharField(max_length=150, blank=True, default="Sin especificar")
     price = models.FloatField(max_length=20, blank=True, default=0)
-    image = models.CharField(max_length=600, blank=True, default="https://imgurl.me/images/2020/10/28/NOIMAGEabcdc93a3d26c769.png")
+    image = models.ImageField(upload_to='gestionpedidos/photos')
+    # image = models.CharField(max_length=600, blank=True, default="https://imgurl.me/images/2020/10/28/NOIMAGEabcdc93a3d26c769.png")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
